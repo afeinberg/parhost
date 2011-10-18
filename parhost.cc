@@ -46,12 +46,8 @@ void lookup(const std::string &buf) {
                          0);
         if (rc != 0) {
             std::cerr << "getnameinfo(): " << gai_strerror(rc) << std::endl;
-        } else {
-            if (*hostname != '\0') {
-                std::cout << buf << " -> " << hostname << std::endl;
-            } else {
-                std::cout << buf << " -> ? " << std::endl;
-            }
+        } else if (*hostname != '\0') {
+            std::cout << buf << " -> " << hostname << std::endl;           
         }
     }
     
